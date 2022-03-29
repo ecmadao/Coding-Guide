@@ -66,6 +66,7 @@
 > export vs export default
 
 - [深入解析 ES Module（二）：彻底禁用 default export](https://zhuanlan.zhihu.com/p/97335917)
+- [require 和 import 的区别](https://segmentfault.com/a/1190000021911869)
 
 #### 进程/线程
 
@@ -85,6 +86,7 @@
 - [【译】【Node.js at Scale】理解 Node.js 中的事件循环](./Node.js-at-Scale/)
 - [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
 - [微任务、宏任务与 Event-Loop](https://juejin.im/post/5b73d7a6518825610072b42b)
+- [async await 和 promise 微任务执行顺序问题](https://segmentfault.com/q/1010000016147496)
 
 setTimeout 问题
 
@@ -104,6 +106,7 @@ setTimeout 问题
  */
 
 // 注意，new Promise 在实例化的过程中所执行的代码都是同步进行的，而 then 中注册的回调才是异步执行的
+// async 函数在 await 之前的代码都是同步执行的，可以理解为 await 之前的代码属于 new Promise 时传入的代码，await 之后的所有代码都是在 Promise.then 中的回调
 ```
 
 ```javascript
@@ -153,11 +156,14 @@ console.log(5)
 - [**认识原型对象和原型链**](https://www.cnblogs.com/onepixel/p/5024903.html)
 - [**函数作用域和作用域链**](https://www.cnblogs.com/onepixel/p/5036369.html)
 - [你不知道的 JavaScript](../JavaScript/你不知道的JavaScript)
+- [JavaScript 浮点数陷阱及解法](https://github.com/camsong/blog/issues/9)
+- [不要再问我 this 的指向问题了](https://segmentfault.com/a/1190000015438195)
 
 > 原型/原型链
 
 JS 中可分为普通对象`Object`和函数对象`Function`。通过`new Function`产生的对象、声明的函数是函数对象，其他对象都是普通对象
 
+`prototype`即原型对象，它记录着对象的一些属性和方法。
 `prototype`对于父对象本身是不可见的，但子类可以完全访问。当通过`new`操作符创建新对象的时候，通常会把父类的`prototype`赋值给新对象的`__proto__`属性，子类就可以调用到继承的属性或方法。
 原型链的形成真正是靠`__proto__`而非`prototype`，当 JS 引擎执行对象的方法时，先查找对象本身是否存在该方法，如果不存在，会在原型链上查找，但不会查找自身的`prototype`
 
@@ -252,11 +258,11 @@ console.log(c.b)
 - Cookie/Session
   - [cookie 和 session 到底是什么](https://mp.weixin.qq.com/s/lEAFW9ZSiqHJOfMnznPPHA)
   - [Cookie/Session 的机制与安全](https://harttle.land/2015/08/10/cookie-session.html)
-  - [傻傻分不清之 Cookie、Session、Token、JWT](https://juejin.im/post/5e055d9ef265da33997a42cc)
+  - [傻傻分不清之 Cookie、Session、Token、JWT](https://juejin.cn/post/6844904034181070861)
   - [详说 Cookie, LocalStorage 与 SessionStorage](https://jerryzou.com/posts/cookie-and-web-storage/)
 - 事件冒泡 和 事件捕获
-  - [https://juejin.im/post/5cc941436fb9a03236394027](https://juejin.im/post/5cc941436fb9a03236394027)
-  - [https://segmentfault.com/a/1190000012729080](https://segmentfault.com/a/1190000012729080)
+  - [你真的理解 事件冒泡 和 事件捕获 吗？](https://juejin.cn/post/6844903834075021326)
+  - [你真的理解事件冒泡和事件捕获吗？](https://segmentfault.com/a/1190000012729080)
 - 跨域问题
   - [浏览器的同源策略](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
   - [**不要再问我跨域的问题了**](https://segmentfault.com/a/1190000015597029)
@@ -269,6 +275,7 @@ console.log(c.b)
 - [Should I use shouldComponentUpdate?](http://jamesknelson.com/should-i-use-shouldcomponentupdate/)
 - [React 基本原理及性能优化](https://segmentfault.com/a/1190000015648248)
 - [React 性能优化总结](https://segmentfault.com/a/1190000007811296)
+- [深入理解 React 底层实现原理](https://zhuanlan.zhihu.com/p/101507773)
 
 #### 其他
 
@@ -328,14 +335,18 @@ JSON.parse(JSON.stringify(obj)) // hack
 
 ### 计算机网络
 
+- [RESTfulAPI](https://github.com/aisuhua/restful-api-design-references)
+
 > http 数据分隔 CLRF(\r\n)
 
 - [扒一扒 HTTP 的构成](http://mrpeak.cn/blog/http-constitution/)
 - [从输入 URL 到页面加载完成的过程中都发生了什么事情？](http://fex.baidu.com/blog/2014/05/what-happen/)
 - [HTTP 状态码](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status)
-- [一文读懂一台计算机是如何把数据发送给另一台计算机的](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484481&amp;idx=2&amp;sn=42a550504e2cbee2f10f36d83e017f9d&source=41#wechat_redirect)
+- [一文读懂一台计算机是如何把数据发送给另一台计算机的](https://zhuanlan.zhihu.com/p/58327059)
 
-- [每天都在用的Ping命令，它到底是什么？](https://zhuanlan.zhihu.com/p/45110873)
+- [ARP 协议在同网段及跨网段下的工作原理](https://zhuanlan.zhihu.com/p/148644458)
+- [每天都在用的 Ping 命令，它到底是什么？](https://zhuanlan.zhihu.com/p/45110873)
+- [ICMP 在 OSI 第几层？有人说二层(链路层) 有人说三层(网络层) 还有人说四层(传输层)?](https://www.zhihu.com/question/31002474)
 
 #### TCP/UDP
 
@@ -346,9 +357,11 @@ TCP/UDP/IP
 - [**面试官，不要再问我三次握手和四次挥手**](https://juejin.im/post/5d9c284b518825095879e7a5)
 - [通俗大白话来理解 TCP 协议的三次握手和四次分手](https://github.com/jawil/blog/issues/14)
 - [TCP 的那些事儿（上）](https://coolshell.cn/articles/11564.html)
-
+- [Mac 地址会不会有重复的？怎么做到全球唯一的？如果网卡作废了，那么 Mac 地址回收吗？](https://wukong.toutiao.com/question/6681530607454912776/)
 - [TCP/IP、Http、Socket 的区别](https://mp.weixin.qq.com/s?__biz=MjM5OTMxMzA4NQ==&mid=403550414&idx=2&sn=b466e4a4a469782a1374095be4bd3036&scene=0#wechat_redirect)
 - [如何通俗地解释一下 TCP/UDP 协议和 HTTP、FTP、SMTP 等协议之间的区别？](https://www.zhihu.com/question/20583641)
+- [TCP 为什么需要第三次握手？第三次握手失败了会怎么样？](https://www.nowcoder.com/questionTerminal/d88f9db98e034c158b51bf362dff91e3)
+- [TCP 流量控制中的滑动窗口大小、TCP 字段中16位窗口大小、MTU、MSS、缓存区大小有什么关系？](https://www.zhihu.com/question/48454744)
 
 调优
 
@@ -438,11 +451,12 @@ net.core.netdev_max_backlog = 4000
 
 #### DNS/CDN、代理
 
-- [CDN 原理简析](https://juejin.im/post/5d105e1af265da1b71530095)
-- [到底什么是CDN？](https://mp.weixin.qq.com/s/6m19Hscu9ZlPc0JGcSFXZw)
+- [CDN 原理简析](https://juejin.cn/post/6844903873518239752)
 - [反向代理为何叫反向代理？](https://www.zhihu.com/question/24723688)
 - [正向代理与反向代理【总结】](https://www.cnblogs.com/anker/p/6056540.html)
 - [TTL 和 DNS TTL 的区别](https://www.cnblogs.com/onepixel/p/7159529.html)
+- [五分钟看懂 Nginx 负载均衡](https://juejin.cn/post/6844904106541203464)
+- [Nginx 负载均衡的5种策略](https://segmentfault.com/a/1190000014483200)
 
 #### 网络攻击
 

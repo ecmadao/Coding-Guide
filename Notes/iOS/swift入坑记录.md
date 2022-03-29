@@ -68,7 +68,8 @@
 #### Swift 语言
 
 - [Swift 中文文档](https://www.cnswift.org/)
-- [Swift 官方文档](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0)
+- [中文版 Apple 官方 Swift 教程《The Swift Programming Language》](https://swiftgg.gitbook.io/swift/)
+- [Swift 官方文档](https://docs.swift.org/swift-book/)
 - [速览：Guide Tour - Playground](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.playground.zip)
 - [速览：Standard Library - Playground](https://developer.apple.com/sample-code/swift/downloads/Standard-Library.zip)
 - [其他官方资源](https://developer.apple.com/swift/resources/)
